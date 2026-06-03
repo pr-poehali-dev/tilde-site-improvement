@@ -35,25 +35,19 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
                   icon: 'MapPin',
                   label: 'Адрес',
                   value: 'г. Тюмень, ул. Республики, 143, офис 305',
-                  sub: 'Пн–Пт: 9:00–19:00 | Сб: 10:00–15:00',
+                  sub: 'Приём ведётся только по предварительной записи',
                 },
                 {
                   icon: 'Phone',
                   label: 'Телефон',
-                  value: '+7 (3452) 55-00-00',
-                  sub: 'Работаем с 9:00 до 19:00',
+                  value: '+7 904 492-42-14',
+                  sub: 'Звоните — расскажем, чем поможем',
                 },
                 {
                   icon: 'Mail',
                   label: 'Email',
-                  value: 'info@respect72.ru',
+                  value: 'tyumenjurist@yandex.ru',
                   sub: 'Ответим в течение часа',
-                },
-                {
-                  icon: 'MessageCircle',
-                  label: 'WhatsApp / Telegram',
-                  value: '+7 (999) 555-00-00',
-                  sub: 'Удобный способ связи 24/7',
                 },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-5">
