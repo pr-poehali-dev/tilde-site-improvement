@@ -4,18 +4,18 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="bg-black border-t border-white/5 py-10">
+    <footer style={{ backgroundColor: '#0a0e14', borderTop: '1px solid rgba(255,255,255,0.05)' }} className="py-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div
             className="font-cormorant text-white cursor-pointer"
             onClick={() => scrollTo('hero')}
           >
-            <div className="text-lg font-semibold tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
-              Юрист в Тюмени
+            <div className="text-lg font-semibold tracking-widest uppercase" style={{ color: 'var(--brand)' }}>
+              Респект
             </div>
-            <div className="text-xs tracking-[0.3em] text-white/30 uppercase">
-              Профессиональная защита прав
+            <div className="text-xs tracking-[0.3em] uppercase mt-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
+              Юридическая Финансовая Компания
             </div>
           </div>
 
@@ -30,15 +30,18 @@ export default function FooterSection() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="text-white/30 hover:text-[var(--gold)] transition-colors text-xs tracking-widest uppercase font-golos"
+                className="text-xs tracking-widest uppercase font-golos transition-colors"
+                style={{ color: 'rgba(255,255,255,0.25)' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--brand)'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.25)'; }}
               >
                 {item.label}
               </button>
             ))}
           </nav>
 
-          <div className="text-white/20 text-xs font-golos text-center md:text-right">
-            <div>© 2024 Юрист в Тюмени</div>
+          <div className="text-xs font-golos text-center md:text-right" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            <div>© 2024 ЮФК «Респект»</div>
             <div className="mt-1">Все права защищены</div>
           </div>
         </div>

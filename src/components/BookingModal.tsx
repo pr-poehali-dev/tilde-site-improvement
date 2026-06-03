@@ -52,41 +52,48 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)' }}
+      style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(4px)' }}
       onClick={(e) => e.target === e.currentTarget && reset()}
     >
       <div
-        className="bg-[var(--dark)] w-full max-w-lg relative overflow-hidden"
-        style={{ maxHeight: '90vh', overflowY: 'auto' }}
+        className="w-full max-w-lg relative overflow-hidden"
+        style={{ backgroundColor: 'var(--dark)', maxHeight: '90vh', overflowY: 'auto' }}
       >
-        <div className="border-b border-white/10 p-6 flex items-center justify-between">
+        <div
+          className="p-6 flex items-center justify-between"
+          style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
+        >
           <div>
             <h2 className="font-cormorant text-white text-2xl font-light">Запись на приём</h2>
             {!submitted && (
-              <p className="font-golos text-white/40 text-xs mt-1">
+              <p className="font-golos text-xs mt-1" style={{ color: '#808080' }}>
                 Шаг {step} из 2
               </p>
             )}
           </div>
-          <button onClick={reset} className="text-white/40 hover:text-white transition-colors">
+          <button onClick={reset} className="transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>
             <Icon name="X" size={20} />
           </button>
         </div>
 
         {submitted ? (
           <div className="p-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/30 flex items-center justify-center mx-auto mb-6">
-              <Icon name="Check" size={28} className="text-[var(--gold)]" />
+            <div
+              className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+              style={{ backgroundColor: 'rgba(27,79,138,0.1)', border: '1px solid rgba(27,79,138,0.3)' }}
+            >
+              <Icon name="Check" size={28} style={{ color: 'var(--brand)' }} />
             </div>
             <h3 className="font-cormorant text-white text-2xl mb-3">Заявка принята!</h3>
-            <p className="font-golos text-white/50 text-sm leading-relaxed mb-8">
+            <p className="font-golos text-sm leading-relaxed mb-8" style={{ color: '#808080' }}>
               Мы свяжемся с вами по номеру <strong className="text-white/70">{form.phone}</strong> для
               подтверждения записи на <strong className="text-white/70">{form.date}</strong> в{' '}
               <strong className="text-white/70">{form.time}</strong>.
             </p>
             <button
               onClick={reset}
-              className="bg-[var(--gold)] text-[var(--dark)] px-8 py-3 text-xs tracking-widest uppercase font-semibold font-golos"
+              className="px-8 py-3 text-xs tracking-widest uppercase font-semibold font-golos text-white"
+              style={{ backgroundColor: 'var(--brand)' }}
             >
               Закрыть
             </button>
@@ -96,19 +103,24 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
             {step === 1 && (
               <>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Ваше имя *
                   </label>
                   <input
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 text-white font-golos text-sm px-4 py-3 focus:border-[var(--gold)]/50 focus:outline-none transition-colors placeholder:text-white/20"
+                    className="w-full font-golos text-sm px-4 py-3 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      color: '#ffffff',
+                    }}
                     placeholder="Иван Иванов"
                   />
                 </div>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Телефон *
                   </label>
                   <input
@@ -116,30 +128,41 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 text-white font-golos text-sm px-4 py-3 focus:border-[var(--gold)]/50 focus:outline-none transition-colors placeholder:text-white/20"
+                    className="w-full font-golos text-sm px-4 py-3 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      color: '#ffffff',
+                    }}
                     placeholder="+7 (999) 000-00-00"
                   />
                 </div>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Область права
                   </label>
                   <select
                     value={form.area}
                     onChange={(e) => setForm({ ...form, area: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 text-white font-golos text-sm px-4 py-3 focus:border-[var(--gold)]/50 focus:outline-none transition-colors"
+                    className="w-full font-golos text-sm px-4 py-3 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      color: form.area ? '#ffffff' : '#808080',
+                    }}
                   >
-                    <option value="" className="bg-[var(--dark)]">Выберите направление</option>
+                    <option value="" style={{ backgroundColor: '#1a1a1a' }}>Выберите направление</option>
                     {practiceAreas.map((a) => (
-                      <option key={a} value={a} className="bg-[var(--dark)]">{a}</option>
+                      <option key={a} value={a} style={{ backgroundColor: '#1a1a1a' }}>{a}</option>
                     ))}
                   </select>
                 </div>
                 <button
                   type="button"
                   onClick={() => form.name && form.phone && setStep(2)}
-                  className="w-full bg-[var(--gold)] text-[var(--dark)] py-4 text-xs tracking-widest uppercase font-semibold font-golos hover:bg-gold-400 transition-colors mt-2 disabled:opacity-50"
                   disabled={!form.name || !form.phone}
+                  className="w-full py-4 text-xs tracking-widest uppercase font-semibold font-golos mt-2 text-white transition-opacity disabled:opacity-40"
+                  style={{ backgroundColor: 'var(--brand)' }}
                 >
                   Далее — выбор времени
                 </button>
@@ -149,7 +172,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
             {step === 2 && (
               <>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Дата приёма *
                   </label>
                   <input
@@ -158,11 +181,15 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                     min={today}
                     value={form.date}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 text-white font-golos text-sm px-4 py-3 focus:border-[var(--gold)]/50 focus:outline-none transition-colors"
+                    className="w-full font-golos text-sm px-4 py-3 focus:outline-none text-white"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                    }}
                   />
                 </div>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Время *
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -171,11 +198,12 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                         key={t}
                         type="button"
                         onClick={() => setForm({ ...form, time: t })}
-                        className={`py-2.5 text-sm font-golos border transition-all duration-200 ${
+                        className="py-2.5 text-sm font-golos border transition-all duration-200"
+                        style={
                           form.time === t
-                            ? 'bg-[var(--gold)] text-[var(--dark)] border-[var(--gold)]'
-                            : 'border-white/10 text-white/60 hover:border-[var(--gold)]/40'
-                        }`}
+                            ? { backgroundColor: 'var(--brand)', color: '#ffffff', borderColor: 'var(--brand)' }
+                            : { borderColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.6)' }
+                        }
                       >
                         {t}
                       </button>
@@ -183,14 +211,18 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                   </div>
                 </div>
                 <div>
-                  <label className="font-golos text-white/50 text-xs tracking-widest uppercase block mb-2">
+                  <label className="font-golos text-xs tracking-widest uppercase block mb-2" style={{ color: '#808080' }}>
                     Краткое описание вопроса
                   </label>
                   <textarea
                     rows={3}
                     value={form.comment}
                     onChange={(e) => setForm({ ...form, comment: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 text-white font-golos text-sm px-4 py-3 focus:border-[var(--gold)]/50 focus:outline-none transition-colors placeholder:text-white/20 resize-none"
+                    className="w-full font-golos text-sm px-4 py-3 focus:outline-none transition-colors resize-none text-white"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                    }}
                     placeholder="Опишите кратко вашу ситуацию..."
                   />
                 </div>
@@ -198,14 +230,16 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="flex-1 border border-white/20 text-white/60 py-3 text-xs tracking-widest uppercase font-golos hover:border-white/40 transition-colors"
+                    className="flex-1 py-3 text-xs tracking-widest uppercase font-golos transition-colors"
+                    style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.5)' }}
                   >
                     Назад
                   </button>
                   <button
                     type="submit"
                     disabled={!form.date || !form.time}
-                    className="flex-[2] bg-[var(--gold)] text-[var(--dark)] py-3 text-xs tracking-widest uppercase font-semibold font-golos hover:bg-gold-400 transition-colors disabled:opacity-50"
+                    className="flex-[2] py-3 text-xs tracking-widest uppercase font-semibold font-golos text-white transition-opacity disabled:opacity-40"
+                    style={{ backgroundColor: 'var(--brand)' }}
                   >
                     Подтвердить запись
                   </button>

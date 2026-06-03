@@ -31,8 +31,8 @@ export default function NavBar({ onBooking }: NavBarProps) {
           className="font-cormorant text-white cursor-pointer"
           onClick={() => scrollTo('hero')}
         >
-          <div className="text-xl font-semibold tracking-widest uppercase text-gold-500">Юрист</div>
-          <div className="text-xs tracking-[0.3em] text-white/50 uppercase">Тюмень</div>
+          <div className="text-xl font-semibold tracking-widest uppercase" style={{ color: 'var(--brand)' }}>Респект</div>
+          <div className="text-xs tracking-[0.3em] text-white/50 uppercase">Юридическая Финансовая Компания</div>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -46,7 +46,7 @@ export default function NavBar({ onBooking }: NavBarProps) {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="text-white/70 hover:text-[var(--gold)] transition-colors duration-300 text-sm tracking-widest uppercase font-golos"
+              className="text-white/70 hover:text-[var(--brand)] transition-colors duration-300 text-sm tracking-widest uppercase font-golos"
             >
               {item.label}
             </button>
@@ -55,7 +55,8 @@ export default function NavBar({ onBooking }: NavBarProps) {
 
         <button
           onClick={onBooking}
-          className="hidden md:block bg-[var(--gold)] text-[var(--dark)] px-6 py-2 text-xs tracking-widest uppercase font-semibold font-golos hover:bg-gold-400 transition-colors duration-300"
+          className="hidden md:block px-6 py-2 text-xs tracking-widest uppercase font-semibold font-golos transition-colors duration-300 text-white"
+          style={{ backgroundColor: 'var(--brand)' }}
         >
           Записаться
         </button>
@@ -80,14 +81,15 @@ export default function NavBar({ onBooking }: NavBarProps) {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="text-white/70 hover:text-[var(--gold)] text-left text-sm tracking-widest uppercase font-golos py-1"
+              className="text-white/70 hover:text-[var(--brand)] text-left text-sm tracking-widest uppercase font-golos py-1"
             >
               {item.label}
             </button>
           ))}
           <button
             onClick={() => { onBooking(); setMenuOpen(false); }}
-            className="bg-[var(--gold)] text-[var(--dark)] px-6 py-3 text-xs tracking-widest uppercase font-semibold font-golos mt-2"
+            className="px-6 py-3 text-xs tracking-widest uppercase font-semibold font-golos mt-2 text-white"
+            style={{ backgroundColor: 'var(--brand)' }}
           >
             Записаться на приём
           </button>

@@ -9,11 +9,11 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #0d0b08 0%, #1a1510 50%, #0f0d0a 100%)',
+        background: 'linear-gradient(135deg, #0a0e14 0%, #0f1825 50%, #080c12 100%)',
       }}
     >
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-25"
         style={{
           backgroundImage: `url('https://cdn.poehali.dev/projects/7346caa0-9817-444d-a549-c129db9917d2/files/06b35072-eef7-467d-a18a-47401ee73d04.jpg')`,
           backgroundSize: 'cover',
@@ -24,7 +24,7 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(90deg, rgba(13,11,8,0.97) 40%, rgba(13,11,8,0.5) 70%, rgba(13,11,8,0.2) 100%)',
+          background: 'linear-gradient(90deg, rgba(8,12,18,0.97) 40%, rgba(8,12,18,0.6) 70%, rgba(8,12,18,0.2) 100%)',
         }}
       />
 
@@ -35,14 +35,14 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
             0deg,
             transparent,
             transparent 60px,
-            rgba(201,168,76,0.3) 60px,
-            rgba(201,168,76,0.3) 61px
+            rgba(27,79,138,0.4) 60px,
+            rgba(27,79,138,0.4) 61px
           ), repeating-linear-gradient(
             90deg,
             transparent,
             transparent 60px,
-            rgba(201,168,76,0.3) 60px,
-            rgba(201,168,76,0.3) 61px
+            rgba(27,79,138,0.4) 60px,
+            rgba(27,79,138,0.4) 61px
           )`,
         }}
       />
@@ -53,8 +53,11 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
             className="inline-flex items-center gap-3 mb-8 animate-fade-in opacity-0-init"
             style={{ animationFillMode: 'forwards' }}
           >
-            <span className="gold-divider inline-block" />
-            <span className="text-[var(--gold)] text-xs tracking-[0.4em] uppercase font-golos">
+            <span
+              className="inline-block"
+              style={{ width: '60px', height: '2px', background: 'var(--brand)' }}
+            />
+            <span className="text-xs tracking-[0.4em] uppercase font-golos" style={{ color: 'var(--brand)' }}>
               Профессиональная юридическая помощь
             </span>
           </div>
@@ -70,7 +73,7 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
             }}
           >
             Защита ваших прав —<br />
-            <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>
+            <span style={{ color: 'var(--brand)', fontStyle: 'italic' }}>
               наша миссия
             </span>
           </h1>
@@ -89,13 +92,14 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
           >
             <button
               onClick={onBooking}
-              className="bg-[var(--gold)] text-[var(--dark)] px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos hover:bg-gold-400 transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/20 hover:-translate-y-0.5"
+              className="px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos text-white transition-all duration-300 hover:-translate-y-0.5"
+              style={{ backgroundColor: 'var(--brand)' }}
             >
               Записаться на приём
             </button>
             <button
               onClick={onConsult}
-              className="border border-white/30 text-white px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-300"
+              className="border border-white/30 text-white px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos transition-all duration-300 hover:border-[var(--brand)] hover:text-[var(--brand)]"
             >
               Онлайн-консультация
             </button>
@@ -112,8 +116,8 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
             ].map((stat) => (
               <div key={stat.label}>
                 <div
-                  className="font-cormorant text-white mb-1"
-                  style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--gold)' }}
+                  className="font-cormorant mb-1"
+                  style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--brand)' }}
                 >
                   {stat.num}
                 </div>
@@ -127,7 +131,10 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-px h-12 bg-gradient-to-b from-[var(--gold)] to-transparent mx-auto" />
+        <div
+          className="w-px h-12 mx-auto"
+          style={{ background: 'linear-gradient(to bottom, var(--brand), transparent)' }}
+        />
       </div>
     </section>
   );

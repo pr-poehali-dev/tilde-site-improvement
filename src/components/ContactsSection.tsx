@@ -7,13 +7,13 @@ interface ContactsProps {
 
 export default function ContactsSection({ onBooking, onConsult }: ContactsProps) {
   return (
-    <section id="contacts" className="py-24 bg-[var(--dark)]">
+    <section id="contacts" className="py-24" style={{ backgroundColor: 'var(--dark)' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <span className="gold-divider" />
-              <span className="text-[var(--gold)] text-xs tracking-[0.4em] uppercase font-golos">
+              <span style={{ width: '60px', height: '2px', background: 'var(--brand)', display: 'block' }} />
+              <span className="text-xs tracking-[0.4em] uppercase font-golos" style={{ color: 'var(--brand)' }}>
                 Контакты
               </span>
             </div>
@@ -23,7 +23,7 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 400, lineHeight: 1.1 }}
             >
               Приходите или<br />
-              <span style={{ fontStyle: 'italic', color: 'var(--gold)' }}>звоните нам</span>
+              <span style={{ fontStyle: 'italic', color: 'var(--brand)' }}>звоните нам</span>
             </h2>
 
             <div className="space-y-6">
@@ -43,7 +43,7 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
                 {
                   icon: 'Mail',
                   label: 'Email',
-                  value: 'info@tyumenjurist72.ru',
+                  value: 'info@respect72.ru',
                   sub: 'Ответим в течение часа',
                 },
                 {
@@ -54,15 +54,18 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
                 },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-5">
-                  <div className="w-10 h-10 rounded-full border border-[var(--gold)]/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon name={c.icon} fallback="MapPin" size={16} className="text-[var(--gold)]" />
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{ border: '1px solid rgba(27,79,138,0.35)' }}
+                  >
+                    <Icon name={c.icon} fallback="MapPin" size={16} style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
-                    <div className="font-golos text-white/35 text-xs tracking-widest uppercase mb-1">
+                    <div className="font-golos text-xs tracking-widest uppercase mb-1" style={{ color: '#808080' }}>
                       {c.label}
                     </div>
                     <div className="font-cormorant text-white text-xl">{c.value}</div>
-                    <div className="font-golos text-white/40 text-xs mt-0.5">{c.sub}</div>
+                    <div className="font-golos text-xs mt-0.5" style={{ color: '#808080' }}>{c.sub}</div>
                   </div>
                 </div>
               ))}
@@ -71,39 +74,50 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
 
           <div className="space-y-4">
             <div
-              className="p-8 border border-[var(--gold)]/15 hover:border-[var(--gold)]/30 transition-colors cursor-pointer group"
+              className="p-8 border cursor-pointer group transition-colors"
+              style={{ borderColor: 'rgba(27,79,138,0.3)' }}
               onClick={onBooking}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 flex items-center justify-center">
-                  <Icon name="CalendarDays" size={18} className="text-[var(--gold)]" />
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(27,79,138,0.15)', border: '1px solid rgba(27,79,138,0.3)' }}
+                >
+                  <Icon name="CalendarDays" size={18} style={{ color: 'var(--brand)' }} />
                 </div>
-                <Icon name="ArrowUpRight" size={20} className="text-white/20 group-hover:text-[var(--gold)] transition-colors" />
+                <Icon name="ArrowUpRight" size={20} className="text-white/20 group-hover:text-white/60 transition-colors" />
               </div>
               <h3 className="font-cormorant text-white text-2xl mb-2">Запись на приём</h3>
-              <p className="font-golos text-white/40 text-sm leading-relaxed">
+              <p className="font-golos text-sm leading-relaxed" style={{ color: '#808080' }}>
                 Выберите удобное время и запишитесь к юристу. Подтверждение в течение 15 минут.
               </p>
             </div>
 
             <div
-              className="p-8 border border-white/10 hover:border-[var(--gold)]/30 transition-colors cursor-pointer group"
+              className="p-8 border cursor-pointer group transition-colors"
+              style={{ borderColor: 'rgba(255,255,255,0.1)' }}
               onClick={onConsult}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center">
-                  <Icon name="MessageSquare" size={18} className="text-white/50 group-hover:text-[var(--gold)] transition-colors" />
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.15)' }}
+                >
+                  <Icon name="MessageSquare" size={18} className="text-white/40 group-hover:text-white/70 transition-colors" />
                 </div>
-                <Icon name="ArrowUpRight" size={20} className="text-white/20 group-hover:text-[var(--gold)] transition-colors" />
+                <Icon name="ArrowUpRight" size={20} className="text-white/20 group-hover:text-white/60 transition-colors" />
               </div>
               <h3 className="font-cormorant text-white text-2xl mb-2">Онлайн-консультация</h3>
-              <p className="font-golos text-white/40 text-sm leading-relaxed">
+              <p className="font-golos text-sm leading-relaxed" style={{ color: '#808080' }}>
                 Задайте вопрос юристу онлайн. Опишите ситуацию — получите развёрнутый ответ.
               </p>
             </div>
 
-            <div className="p-6 bg-white/3 border border-white/5">
-              <p className="font-golos text-white/30 text-xs leading-relaxed text-center">
+            <div
+              className="p-5"
+              style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
+            >
+              <p className="font-golos text-xs leading-relaxed text-center" style={{ color: '#555555' }}>
                 Все консультации конфиденциальны. Ваши данные защищены и не передаются третьим лицам.
               </p>
             </div>

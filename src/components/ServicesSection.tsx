@@ -39,11 +39,11 @@ export default function ServicesSection({ onBooking }: ServicesProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="services" className="py-24 bg-[var(--dark)]">
+    <section id="services" className="py-24" style={{ backgroundColor: 'var(--dark)' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center gap-4 mb-4">
-          <span className="gold-divider" />
-          <span className="text-[var(--gold)] text-xs tracking-[0.4em] uppercase font-golos">
+          <span style={{ width: '60px', height: '2px', background: 'var(--brand)', display: 'block' }} />
+          <span className="text-xs tracking-[0.4em] uppercase font-golos" style={{ color: 'var(--brand)' }}>
             Прайс-лист
           </span>
         </div>
@@ -55,7 +55,7 @@ export default function ServicesSection({ onBooking }: ServicesProps) {
           >
             Услуги и стоимость
           </h2>
-          <p className="text-white/40 font-golos text-sm leading-relaxed max-w-xs">
+          <p className="font-golos text-sm leading-relaxed max-w-xs" style={{ color: '#808080' }}>
             Итоговая стоимость определяется после первичной консультации и оценки дела
           </p>
         </div>
@@ -65,11 +65,12 @@ export default function ServicesSection({ onBooking }: ServicesProps) {
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`px-6 py-2.5 text-xs tracking-widest uppercase font-golos font-semibold transition-all duration-300 ${
+              className="px-6 py-2.5 text-xs tracking-widest uppercase font-golos font-semibold transition-all duration-300"
+              style={
                 activeTab === i
-                  ? 'bg-[var(--gold)] text-[var(--dark)]'
-                  : 'border border-white/20 text-white/50 hover:border-[var(--gold)]/50 hover:text-white/80'
-              }`}
+                  ? { backgroundColor: 'var(--brand)', color: '#ffffff' }
+                  : { border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.5)' }
+              }
             >
               {s.category}
             </button>
@@ -80,43 +81,51 @@ export default function ServicesSection({ onBooking }: ServicesProps) {
           {services[activeTab].items.map((item, i) => (
             <div
               key={i}
-              className={`flex items-center justify-between p-6 border transition-all duration-300 group cursor-default ${
+              className="flex items-center justify-between p-6 border transition-all duration-300 cursor-default"
+              style={
                 item.popular
-                  ? 'border-[var(--gold)]/40 bg-[var(--gold)]/5'
-                  : 'border-white/10 hover:border-white/20'
-              }`}
+                  ? { borderColor: 'rgba(27,79,138,0.5)', backgroundColor: 'rgba(27,79,138,0.08)' }
+                  : { borderColor: 'rgba(255,255,255,0.1)' }
+              }
             >
               <div className="flex items-center gap-3">
                 {item.popular && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--brand)' }} />
                 )}
-                <span className="font-golos text-white/80 text-sm">{item.name}</span>
+                <span className="font-golos text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>{item.name}</span>
                 {item.popular && (
-                  <span className="text-[0.6rem] tracking-widest uppercase text-[var(--gold)] border border-[var(--gold)]/30 px-2 py-0.5 font-golos">
+                  <span
+                    className="text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-golos border"
+                    style={{ color: 'var(--brand)', borderColor: 'rgba(27,79,138,0.4)' }}
+                  >
                     Популярно
                   </span>
                 )}
               </div>
-              <span className="font-cormorant text-[var(--gold)] text-xl ml-4 whitespace-nowrap">
+              <span className="font-cormorant text-xl ml-4 whitespace-nowrap" style={{ color: 'var(--brand)' }}>
                 {item.price}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 p-8 border border-[var(--gold)]/20 bg-[var(--gold)]/5">
+        <div
+          className="mt-12 p-8 border"
+          style={{ borderColor: 'rgba(27,79,138,0.3)', backgroundColor: 'rgba(27,79,138,0.06)' }}
+        >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <h3 className="font-cormorant text-white text-2xl mb-2">
                 Не знаете, с чего начать?
               </h3>
-              <p className="font-golos text-white/50 text-sm">
+              <p className="font-golos text-sm" style={{ color: '#808080' }}>
                 Запишитесь на первичную консультацию — оценим ситуацию и предложим оптимальное решение
               </p>
             </div>
             <button
               onClick={onBooking}
-              className="flex-shrink-0 bg-[var(--gold)] text-[var(--dark)] px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos hover:bg-gold-400 transition-colors duration-300 flex items-center gap-2"
+              className="flex-shrink-0 px-8 py-4 text-sm tracking-widest uppercase font-semibold font-golos text-white transition-colors duration-300 flex items-center gap-2"
+              style={{ backgroundColor: 'var(--brand)' }}
             >
               Записаться
               <Icon name="ArrowRight" size={16} />

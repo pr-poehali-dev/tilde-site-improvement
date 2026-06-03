@@ -41,44 +41,53 @@ const practices = [
 
 export default function PracticeSection() {
   return (
-    <section id="practice" className="py-24 bg-cream">
+    <section id="practice" className="py-24" style={{ backgroundColor: '#f0f2f5' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center gap-4 mb-4">
-          <span className="gold-divider" />
-          <span className="text-[var(--gold)] text-xs tracking-[0.4em] uppercase font-golos">
+          <span style={{ width: '60px', height: '2px', background: 'var(--brand)', display: 'block' }} />
+          <span className="text-xs tracking-[0.4em] uppercase font-golos" style={{ color: 'var(--brand)' }}>
             Направления работы
           </span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
           <h2
-            className="font-cormorant text-[var(--dark)]"
-            style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.1 }}
+            className="font-cormorant"
+            style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.1, color: '#1a1a1a' }}
           >
             Области практики
           </h2>
-          <p className="text-[var(--dark)]/50 font-golos text-sm leading-relaxed max-w-xs">
+          <p className="font-golos text-sm leading-relaxed max-w-xs" style={{ color: '#808080' }}>
             Комплексная юридическая помощь по всем ключевым отраслям права
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--dark)]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#d0d4da' }}>
           {practices.map((p, i) => (
             <div
               key={i}
-              className="bg-cream p-8 group hover:bg-[var(--dark)] transition-all duration-500 cursor-default"
+              className="p-8 group transition-all duration-500 cursor-default"
+              style={{ backgroundColor: '#f0f2f5' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.backgroundColor = 'var(--brand)'; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.backgroundColor = '#f0f2f5'; }}
             >
               <div className="mb-6">
-                <div className="w-10 h-10 rounded-full border border-[var(--gold)]/40 flex items-center justify-center mb-4 group-hover:bg-[var(--gold)]/10 group-hover:border-[var(--gold)] transition-all duration-300">
-                  <Icon name={p.icon} fallback="Scale" size={18} className="text-[var(--gold)]" />
+                <div
+                  className="w-10 h-10 rounded-full border flex items-center justify-center mb-4 transition-all duration-300"
+                  style={{ borderColor: 'rgba(27,79,138,0.3)' }}
+                >
+                  <Icon name={p.icon} fallback="Scale" size={18} style={{ color: 'var(--brand)' }} />
                 </div>
                 <h3
-                  className="font-cormorant text-[var(--dark)] group-hover:text-white mb-2 transition-colors duration-300"
-                  style={{ fontSize: '1.4rem', fontWeight: 500 }}
+                  className="font-cormorant mb-2 transition-colors duration-300 group-hover:text-white"
+                  style={{ fontSize: '1.4rem', fontWeight: 500, color: '#1a1a1a' }}
                 >
                   {p.title}
                 </h3>
-                <p className="text-[var(--dark)]/55 group-hover:text-white/50 font-golos text-sm leading-relaxed transition-colors duration-300">
+                <p
+                  className="font-golos text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/60"
+                  style={{ color: '#808080' }}
+                >
                   {p.desc}
                 </p>
               </div>
@@ -87,9 +96,13 @@ export default function PracticeSection() {
                 {p.items.map((item, j) => (
                   <li
                     key={j}
-                    className="flex items-center gap-2 text-xs font-golos text-[var(--dark)]/40 group-hover:text-white/40 transition-colors duration-300"
+                    className="flex items-center gap-2 text-xs font-golos transition-colors duration-300 group-hover:text-white/50"
+                    style={{ color: '#aaaaaa' }}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[var(--gold)] flex-shrink-0" />
+                    <span
+                      className="w-1 h-1 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: 'var(--brand)' }}
+                    />
                     {item}
                   </li>
                 ))}
