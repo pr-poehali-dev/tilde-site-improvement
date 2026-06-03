@@ -31,8 +31,8 @@ export default function NavBar({ onBooking }: NavBarProps) {
           className="font-cormorant text-white cursor-pointer"
           onClick={() => scrollTo('hero')}
         >
-          <div className="text-xl font-semibold tracking-widest uppercase" style={{ color: 'var(--brand)' }}>Респект</div>
-          <div className="text-xs tracking-[0.3em] text-white/50 uppercase">Юридическая Финансовая Компания</div>
+          <div className="text-xl font-semibold tracking-widest uppercase" style={{ color: 'var(--brand)' }}>РЕСПЕКТ</div>
+          <div className="text-xs tracking-[0.2em] text-white/50 uppercase">ООО «Юридическая Финансовая Компания»</div>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">

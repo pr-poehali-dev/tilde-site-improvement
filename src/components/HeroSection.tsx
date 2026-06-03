@@ -58,7 +58,7 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
               style={{ width: '60px', height: '2px', background: 'var(--brand)' }}
             />
             <span className="text-xs tracking-[0.4em] uppercase font-golos" style={{ color: 'var(--brand)' }}>
-              Профессиональная юридическая помощь
+              ООО «Юридическая Финансовая Компания РЕСПЕКТ»
             </span>
           </div>
 
@@ -82,7 +82,7 @@ export default function HeroSection({ onBooking, onConsult }: HeroProps) {
             className="text-white/60 text-lg leading-relaxed mb-10 font-golos max-w-xl animate-fade-in opacity-0-init animate-delay-300"
             style={{ animationFillMode: 'forwards' }}
           >
-            Более 15 лет практики в гражданском, уголовном и административном праве.
+            Более 15 лет практики в гражданском, трудовом и корпоративном праве.
             Индивидуальный подход к каждому делу. Работаем в Тюмени и Тюменской области.
           </p>
 

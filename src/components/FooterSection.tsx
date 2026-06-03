@@ -12,10 +12,10 @@ export default function FooterSection() {
             onClick={() => scrollTo('hero')}
           >
             <div className="text-lg font-semibold tracking-widest uppercase" style={{ color: 'var(--brand)' }}>
-              Респект
+              РЕСПЕКТ
             </div>
-            <div className="text-xs tracking-[0.3em] uppercase mt-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
-              Юридическая Финансовая Компания
+            <div className="text-xs tracking-[0.2em] uppercase mt-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
+              ООО «Юридическая Финансовая Компания»
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export default function FooterSection() {
           </nav>
 
           <div className="text-xs font-golos text-center md:text-right" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            <div>© 2024 ЮФК «Респект»</div>
+            <div>© 2024 ООО «ЮФК РЕСПЕКТ»</div>
             <div className="mt-1">Все права защищены</div>
           </div>
         </div>

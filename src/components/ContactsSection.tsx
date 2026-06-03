@@ -19,12 +19,15 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
             </div>
 
             <h2
-              className="font-cormorant text-white mb-8"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 400, lineHeight: 1.1 }}
+              className="font-cormorant text-white mb-2"
+              style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)', fontWeight: 400, lineHeight: 1.1 }}
             >
-              Приходите или<br />
-              <span style={{ fontStyle: 'italic', color: 'var(--brand)' }}>звоните нам</span>
+              ООО «Юридическая<br />Финансовая Компания<br />
+              <span style={{ fontStyle: 'italic', color: 'var(--brand)' }}>РЕСПЕКТ»</span>
             </h2>
+            <p className="font-golos text-sm mb-8" style={{ color: '#808080' }}>
+              Приходите или звоните — поможем разобраться в любой ситуации
+            </p>
 
             <div className="space-y-6">
               {[
