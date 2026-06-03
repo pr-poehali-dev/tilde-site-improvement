@@ -34,7 +34,7 @@ export default function ContactsSection({ onBooking, onConsult }: ContactsProps)
                 {
                   icon: 'MapPin',
                   label: 'Адрес',
-                  value: 'г. Тюмень, ул. Республики, 143, офис 305',
+                  value: 'г. Тюмень, ул. Александра Матросова, 1/6',
                   sub: 'Приём ведётся только по предварительной записи',
                 },
                 {
